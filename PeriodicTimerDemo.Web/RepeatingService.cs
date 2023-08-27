@@ -1,4 +1,4 @@
-﻿namespace PeriodicTimer.Web;
+﻿namespace PeriodicTimerDemo.Web;
 
 public class RepeatingService : BackgroundService
 {

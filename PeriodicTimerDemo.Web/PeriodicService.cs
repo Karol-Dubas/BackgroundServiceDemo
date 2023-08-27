@@ -1,8 +1,8 @@
-﻿namespace PeriodicTimer.Web;
+﻿namespace PeriodicTimerDemo.Web;
 
 public class PeriodicService : BackgroundService
 {
-    private readonly System.Threading.PeriodicTimer _timer = new(TimeSpan.FromSeconds(1));
+    private readonly PeriodicTimer _timer = new(TimeSpan.FromSeconds(1));
     private readonly ILogger<PeriodicService> _logger;
 
     public PeriodicService(ILogger<PeriodicService> logger)

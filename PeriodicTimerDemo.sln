@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeriodicTimer.Web", "PeriodicTimer.Web\PeriodicTimer.Web.csproj", "{D80C7A28-F990-48E9-BB4B-9B6DB33F2306}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeriodicTimerDemo.Web", "PeriodicTimerDemo.Web\PeriodicTimerDemo.Web.csproj", "{D80C7A28-F990-48E9-BB4B-9B6DB33F2306}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeriodicTimer.Console", "PeriodicTimer.Console\PeriodicTimer.Console.csproj", "{0AE1E510-02B8-454A-8B91-4DD8A59049C7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeriodicTimerDemo.Console", "PeriodicTimerDemo.Console\PeriodicTimerDemo.Console.csproj", "{0AE1E510-02B8-454A-8B91-4DD8A59049C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
