@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeriodicTimerDemo.Web", "Pe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeriodicTimerDemo.Console", "PeriodicTimerDemo.Console\PeriodicTimerDemo.Console.csproj", "{0AE1E510-02B8-454A-8B91-4DD8A59049C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackgroundServiceDemo.Console", "BackgroundServiceDemo.Console\BackgroundServiceDemo.Console.csproj", "{4522787B-1A7C-4AB4-8D33-4BC780FBA508}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{0AE1E510-02B8-454A-8B91-4DD8A59049C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0AE1E510-02B8-454A-8B91-4DD8A59049C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0AE1E510-02B8-454A-8B91-4DD8A59049C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4522787B-1A7C-4AB4-8D33-4BC780FBA508}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4522787B-1A7C-4AB4-8D33-4BC780FBA508}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4522787B-1A7C-4AB4-8D33-4BC780FBA508}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4522787B-1A7C-4AB4-8D33-4BC780FBA508}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
