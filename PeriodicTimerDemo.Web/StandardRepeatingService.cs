@@ -1,10 +1,10 @@
 ﻿namespace PeriodicTimerDemo.Web;
 
-public class RepeatingService : BackgroundService
+public class StandardRepeatingService : BackgroundService
 {
-    private readonly ILogger<RepeatingService> _logger;
+    private readonly ILogger<StandardRepeatingService> _logger;
 
-    public RepeatingService(ILogger<RepeatingService> logger)
+    public StandardRepeatingService(ILogger<StandardRepeatingService> logger)
     {
         _logger = logger;
     }
