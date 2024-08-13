@@ -6,6 +6,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeriodicTimerDemo.Console",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackgroundServiceDemo.Console", "BackgroundServiceDemo.Console\BackgroundServiceDemo.Console.csproj", "{4522787B-1A7C-4AB4-8D33-4BC780FBA508}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Channels", "Channels", "{D928FCA9-046B-44A1-B265-BBE5A05E4667}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwnChannel", "OwnChannel\OwnChannel.csproj", "{C9C15D1F-4543-4E22-850D-334325EA8BDC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +28,12 @@ Global
 		{4522787B-1A7C-4AB4-8D33-4BC780FBA508}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4522787B-1A7C-4AB4-8D33-4BC780FBA508}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4522787B-1A7C-4AB4-8D33-4BC780FBA508}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9C15D1F-4543-4E22-850D-334325EA8BDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9C15D1F-4543-4E22-850D-334325EA8BDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9C15D1F-4543-4E22-850D-334325EA8BDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9C15D1F-4543-4E22-850D-334325EA8BDC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C9C15D1F-4543-4E22-850D-334325EA8BDC} = {D928FCA9-046B-44A1-B265-BBE5A05E4667}
 	EndGlobalSection
 EndGlobal
