@@ -7,7 +7,7 @@ builder.Services.AddDbContext<Database>(config =>
     config.UseInMemoryDatabase("database"));
 
 builder.Services.AddHttpClient();
-builder.Services.AddSingleton<Channel<int>>(_ => Channel.CreateUnbounded<int>());
+builder.Services.AddSingleton(Channel.CreateUnbounded<int>());
 builder.Services.AddHostedService<UserBackgroundService>();
 
 var app = builder.Build();

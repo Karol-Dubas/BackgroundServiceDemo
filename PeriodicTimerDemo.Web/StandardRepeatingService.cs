@@ -21,10 +21,12 @@ public class StandardRepeatingService : BackgroundService
     {
         _logger.LogInformation(nameof(ExecuteAsync));
 
+        // TODO: exception bubble up, must be caught!
+        
         while (!stoppingToken.IsCancellationRequested)
         {
             // Losing 1ms every time
-            // It gets worse if operations here take long time
+            // It gets worse if operations here take a long time
 
             _logger.LogInformation(DateTimeOffset.UtcNow.ToString("O"));
             await Task.Delay(1000, stoppingToken);
