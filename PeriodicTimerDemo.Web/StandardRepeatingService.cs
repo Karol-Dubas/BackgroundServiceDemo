@@ -9,33 +9,41 @@ public class StandardRepeatingService : BackgroundService
         _logger = logger;
     }
 
-    public override Task StartAsync(CancellationToken cancellationToken)
+    public override Task StartAsync(CancellationToken ct)
     {
-        _logger.LogInformation("Starting " + nameof(StartAsync));
-        var startTask = base.StartAsync(cancellationToken);
-        _logger.LogInformation("Started " + nameof(StartAsync));
+        _logger.LogInformation($"Executing '{nameof(StartAsync)}'...");
+        var startTask = base.StartAsync(ct);
+        _logger.LogInformation($"Executed '{nameof(StartAsync)}'");
         return startTask;
     }
 
-    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+    protected override async Task ExecuteAsync(CancellationToken ct)
     {
-        _logger.LogInformation(nameof(ExecuteAsync));
+        _logger.LogInformation($"Starting '{nameof(ExecuteAsync)}'...");
 
-        // TODO: exception bubble up, must be caught!
-        
-        while (!stoppingToken.IsCancellationRequested)
+        try
         {
-            // Losing 1ms every time
-            // It gets worse if operations here take a long time
-
-            _logger.LogInformation(DateTimeOffset.UtcNow.ToString("O"));
-            await Task.Delay(1000, stoppingToken);
+            while (!ct.IsCancellationRequested)
+            {
+                // Losing ~1ms every time.
+                // It gets worse if operation execution here takes a longer time.
+                _logger.LogInformation(DateTimeOffset.UtcNow.ToString("O"));
+                await Task.Delay(1000, ct);
+            }
         }
+        catch (OperationCanceledException)
+        {
+            _logger.LogInformation($"Exiting '{nameof(ExecuteAsync)}'...");
+        }
+        
+        _logger.LogInformation($"'{nameof(StandardRepeatingService)}' was canceled");
     }
 
-    public override Task StopAsync(CancellationToken cancellationToken)
+    public override Task StopAsync(CancellationToken ct)
     {
-        _logger.LogInformation(nameof(StopAsync));
-        return base.StopAsync(cancellationToken);
+        _logger.LogInformation($"Executing '{nameof(StopAsync)}'...");
+        var stopTask = base.StopAsync(ct);
+        _logger.LogInformation($"Executed '{nameof(StopAsync)}'");
+        return stopTask;
     }
 }

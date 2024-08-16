@@ -1,54 +1,57 @@
-namespace PeriodicTimerDemo.Console;
-
 public class BackgroundTask
 {
-    private Task? _timerTask;
+    private readonly Action _action;
+    private Task? _loopTask;
     private readonly PeriodicTimer _timer;
     private readonly CancellationTokenSource _cts = new();
 
-    public BackgroundTask(TimeSpan interval)
+    public BackgroundTask(Action action, TimeSpan period)
     {
-        _timer = new PeriodicTimer(interval);
+        _action = action;
+        _timer = new PeriodicTimer(period);
     }
 
     public void Start()
     {
-        _timerTask = StartLoop();
+        _loopTask = StartLoop();
     }
 
     public async Task Stop()
     {
-        System.Console.WriteLine($"'{nameof(Stop)}' method start");
+        Console.WriteLine($"'{nameof(Stop)}' method start");
 
-        if (_timerTask is null)
+        if (_loopTask is null)
             return;
         
         _cts.Cancel();
-        await _timerTask;
+        await _loopTask;
         _cts.Dispose();
+        _timer.Dispose();
         
-        System.Console.WriteLine($"'{nameof(Stop)}' method end");
+        Console.WriteLine($"'{nameof(Stop)}' method end");
     }
     
     private async Task StartLoop()
     {
-        System.Console.WriteLine($"'{nameof(StartLoop)}' method start");
-
+        await Task.Yield();
+        
+        Console.WriteLine($"'{nameof(StartLoop)}' method start");
+        
         try
         {
+            // Tries to stay as close as possible to the set period
             while (await _timer.WaitForNextTickAsync(_cts.Token))
             {
-                // Simulating some background stuff
-                System.Console.WriteLine(DateTime.Now.ToString("HH:mm:ss.fff")); 
+                _action();
             }
         }
-        catch (OperationCanceledException e)
+        catch (OperationCanceledException)
         {
-            System.Console.WriteLine($"Exception: {e.Message}");
+            Console.WriteLine("Operation canceled");
         }
         finally
         {
-            System.Console.WriteLine($"'{nameof(StartLoop)}' method end");
+            Console.WriteLine($"'{nameof(StartLoop)}' method end");
         }
     }
 }

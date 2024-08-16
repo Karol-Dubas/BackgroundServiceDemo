@@ -3,8 +3,8 @@ Console.ReadKey(true);
 
 using var cts = new CancellationTokenSource();
 
-// Starts as background task. Method returns Task immediately,
-// fires off and isn't waiting to complete, moves to next line.
+// Starts as a background task.
+// Method returns a Task immediately, fires off and isn't waiting to complete, moves to the next line.
 var backgroundTask = StartBackgroundService(cts.Token);
 
 Console.WriteLine("Press any key to stop background service...");
@@ -14,7 +14,7 @@ cts.Cancel();
 
 // After cancellation, ensures that the program doesn't exit immediately.
 // Makes sure that background task has a chance to properly shut down
-// (finish whole method) before application terminates.
+// (finish whole method) before the application terminates.
 await backgroundTask;
 
 Console.WriteLine("Press any key to exit...");
@@ -29,15 +29,13 @@ async Task StartBackgroundService(CancellationToken ct)
         {
             Console.WriteLine(DateTime.Now.ToString("HH:mm:ss.fff"));
             
-            // When a cancellation token is passed to Task.Delay,then Task.Delay
+            // When a cancellation token is passed to Task.Delay, then it
             // throws a TaskCanceledException if the token is canceled.
-            await Task.Delay(1000/*, ct*/);
+            await Task.Delay(500, ct);
         }
-
-        Console.WriteLine("Cancellation token isn't passed to Task.Delay");
     }
     catch (TaskCanceledException)
     {
-        Console.WriteLine("Canceled");
+        Console.WriteLine("Background service canceled");
     }
 }
